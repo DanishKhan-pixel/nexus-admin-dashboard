@@ -1,0 +1,76 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title "> Table</h4>
+                  <p class="card-category">Un Verified Users</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          UserName
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          User Type
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        {% for user in users %}
+                        <tr>
+                          <td>
+                            {{ user.id }}
+                          </td>
+                          <td>
+                            {{ user.username }}
+                          </td>
+                          <td>
+                            {{ user.email }}
+                          </td>
+                          <td>
+                            {% if user.is_superuser %}
+                            Super Admin
+                            {% elif user.is_ent %}
+                                Entrepreneur
+                            {% elif user.is_investor %}
+                                Investor
+                            {% endif %}
+                          </td>
+                          <td class="text-primary">
+                            <a href="{% url 'sch_meet' user.id %}" class="btn btn-primary">View</a>
+                            <a href="{% url 'acc' user.id %}" class="btn btn-success">Accept</a>
+                            <a href="{% url 'rej' user.id %}" class="btn btn-danger">Reject</a>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

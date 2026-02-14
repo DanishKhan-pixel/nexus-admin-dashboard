@@ -1,0 +1,79 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Page User {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Schedule </h4>
+                  <p class="card-category">Meeting</p>
+                </div>
+                <div class="card-body">
+                  <form action="{% url 'sch_meet' current_user.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">UserID</label>
+                          <input type="text" class="form-control" readonly name="user_id" value="{{ current_user.id }}">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" class="form-control" name="username" readonly value="{{ current_user.username }}">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control" name="email" readonly value="{{ current_user.email }}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Select Date</label>
+                          <input type="datetime-local" id="date" class="form-control" name="date" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Link</label>
+                          <input type="text" class="form-control" name="link" required >
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Schedule</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            // Get the current date and time
+            var now = new Date();
+          
+            // Format the date and time as required by datetime-local input
+            var year = now.getFullYear();
+            var month = (now.getMonth() + 1).toString().padStart(2, '0');
+            var day = now.getDate().toString().padStart(2, '0');
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var formattedDateTime = year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
+          
+            // Set the min attribute of the datetime-local input to the current date and time
+            document.getElementById('date').min = formattedDateTime;
+          </script>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

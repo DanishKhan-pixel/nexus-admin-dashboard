@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bussiness Nexus</title>
+		<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/static/assets/landing/css/animate.css">
+		<link rel="stylesheet" href="/static/assets/landing/css/magnific-popup.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="stylesheet" href="/static/assets/landing/css/owl.carousel.min.css">
+		<link rel="stylesheet" href="/static/assets/landing/css/owl.theme.default.min.css">
+		<link rel="stylesheet" href="/static/assets/landing/css/all.min.css">
+		<link rel="stylesheet" href="/static/assets/landing/css/fontawesome.min.css">
+		<link rel="stylesheet" href="/static/assets/landing/css/style.css">
+		<link rel="stylesheet" href="/static/assets/landing/css/responsive.css">
+	</head>
+	<body id="sectiontop">
+		<!-- hader-area -->
+		<header class="hader-area d-none d-md-block" id="sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2">
+						<div class="logo-area">
+							<a href="index.html">
+								<!-- <img src="images/logo.png" alt="logo" /> -->
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-8">
+						<nav class="hader-menu">
+							<ul>
+								<li>
+									<a href="#sectiontop">home</a>
+								</li>
+								<li>
+									<a href="#account">Account</a>
+								</li>
+								<li>
+									<a href="{% url 'home2'  %}">Forums</a>
+								</li>
+								<li>
+									<a href="/listings">Listings</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-lg-2 col-md-2">
+						<div class="singel-menu">
+							<a href="/login">Login</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- hader-end -->
+		<!-- mobile menu area start here  -->
+		<div class="mobile-menu-area d-block d-md-none ">
+			<div class="contaienr">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				  <a class="navbar-brand" href="index.html"><img src="/static/assets/landing/images/logo.png" alt="logo" /></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarNav">
+				    <ul class="navbar-nav">
+				      <li class="nav-item active">
+				        <a class="nav-link" href="#">home</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">about</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">Features</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">Account</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">Contact</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">English</a>
+				      </li>
+				    </ul>
+				  </div>
+				</nav>
+			</div>
+		</div>
+		<!-- mobile menu area end here  -->
+		<!-- baner-area -->
+		<section class="baner-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="baner-box">
+							<div class="baner-text wow fadeInDown " data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+								<h2>Invest <span>Like a Pro Anytime, Anywhere</span></h2>
+								<p>Adipiscing amet eu eget posuere quam faucibus id consectetur. Suscipit semper mauris ipsum congue viverra.</p>
+							</div>
+							<div class="baner-btn wow pulse" ata-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: pulse;">
+								<a href="/">Open Account</a>
+							</div>
+						</div>
+						<div class="baner-image">
+							<img src="/static/assets/landing/images/image.png" alt="image" />
+						</div>
+					</div>
+				</div>
+			</div>			
+		</section>
+		<!-- baner-end -->
+		<!-- our-benifits -->
+		<section class="our-benifits">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-text">
+							<h4>Our Benifits</h4>
+							<h2>Why Choose Us?</h2>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 order-1 order-lg-1">
+						<div class="benifits-box padding-top">
+							<div class="benifits-image">
+								<img src="/static/assets/landing/images/1.png" alt="image" />
+							</div>
+							<div class="benifits-tetx">
+								<h4>Trading Instruments</h4>
+								<p>Sed a semper sagittis gravida condimentum quam quis odio. Pulvinar pellentesque and k risus sapie andfi.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12 order-3 order-lg-2">
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="benifits-box">
+									<div class="benifits-image">
+										<img src="/static/assets/landing/images/2.png" alt="image" />
+									</div>
+									<div class="benifits-tetx">
+										<h4>Trading Instruments</h4>
+										<p>Sed a semper sagittis gravida condimentum quam quis odio. Pulvinar pellentesque and k risus sapie andfi.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="benifits-box">
+									<div class="benifits-image">
+										<img src="/static/assets/landing/images/5.png" alt="image" />
+									</div>
+									<div class="benifits-tetx">
+										<h4>Trading Instruments</h4>
+										<p>Sed a semper sagittis gravida condimentum quam quis odio. Pulvinar pellentesque and k risus sapie andfi.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-12 col-md-12">
+								<div class="benifits-small wow fadeInDown" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+									<img src="/static/assets/landing/images/small.png" alt="image" />
+									<a class="popup-video" href="http://www.youtube.com/watch?v=0O2aH4XLbto">
+										<i class="fas fa-play"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 order-2 order-lg-3">
+						<div class="benifits-box padding-top">
+							<div class="benifits-image">
+								<img src="/static/assets/landing/images/flat.png" alt="image" />
+							</div>
+							<div class="benifits-tetx">
+								<h4>Trading Instruments</h4>
+								<p>Sed a semper sagittis gravida condimentum quam quis odio. Pulvinar pellentesque and k risus sapie andfi.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- our-benifits -->
+		<!-- about-us -->
+		<section class="our-about " id="about">
+			<div class="container">
+				<div class="about-us">
+					<div class="row">
+						<div class="col-lg-6 offset-lg-6">
+							<div class="about-text">
+								<h4>About Us</h4>
+								<h2>Welcome to Bussiness Nexus</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros nisl pharetra, turpis nec velit ultricies. Nullam consectetur sollicitudin aliquam convallis senectus faucibus. duis at maecenas mattis. Eget tincidunt diam pharetra eget netus sagittis.</p>
+								<p>Sollicitudin pellentesque tellus vitae lacus sed. Ac egestas id hac nulla. Egestas turpis pellentesque in arcu, euismod eleifend quam. Congue a natoque feugiat habitasse facilisis.</p>
+							</div>
+							<div class="about-btn wow fadeInDown" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+								<a href="#">Learn More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- about-us -->
+		<!-- our-services -->
+		<section class="our-services" id="features">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-text">
+							<h4>Features</h4>
+							<h2>Our Services</h2>
+						</div>
+					</div>
+				</div>
+				<div class="box-services">
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="services-box">
+								<div class="services-image">
+									<img src="/static/assets/landing/images/bank.png" alt="image" />
+								</div>
+								<div class="services-text">
+									<h4>Investment</h4>
+									<p>Mattis habitant cras erat sem in velit dui. Velit non non tristique est sit. Nec, porttitor iaculis eu, faucibus sed nisl, tristique a.</p>
+								</div>
+								<div class="services-icon">
+									<img src="/static/assets/landing/images/Arrow1.svg" alt="image" />
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="services-box">
+								<div class="services-image bank-image">
+									<img src="/static/assets/landing/images/bank2.png" alt="image" />
+								</div>
+								<div class="services-text">
+									<h4>Manage</h4>
+									<p>Mattis habitant cras erat sem in velit dui. Velit non non tristique est sit. Nec, porttitor iaculis eu, faucibus sed nisl, tristique a.</p>
+								</div>
+								<div class="services-icon">
+									<img src="/static/assets/landing/images/Arrow1.svg" alt="image" />
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="services-box">
+								<div class="services-image">
+									<img src="/static/assets/landing/images/bank3.png" alt="image" />
+								</div>
+								<div class="services-text">
+									<h4>List </h4>
+									<p>Mattis habitant cras erat sem in velit dui. Velit non non tristique est sit. Nec, porttitor iaculis eu, faucibus sed nisl, tristique a.</p>
+								</div>
+								<div class="services-icon">
+									<img src="/static/assets/landing/images/Arrow1.svg" alt="image" />
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</section>
+		<!-- our-services -->
+		<!-- acount-area -->
+		<section class="acount-area" id="account">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="acount-text ">
+							<h5>Open Acount</h5>
+							<h2>Opent Account in 5 Minutes</h2>
+						</div>
+						<div class="maine-acount">
+							<div class="acount-box wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+								<div class="acount-image">
+									<img src="/static/assets/landing/images/soto.png" alt="image" />
+									<h4>Find your account</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices in aliquam mi odio.</p>
+								</div>
+							</div>
+							<div class="acount-box ">
+								<div class="acount-image share-box wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+									<img src="/static/assets/landing/images/20.png" alt="image" />
+									<h4>Find your account</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices in aliquam mi odio.</p>
+								</div>
+							</div>
+							<div class="acount-box">
+								<div class="acount-image search-box wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+									<img src="/static/assets/landing/images/21.png" alt="image" />
+									<h4>Find your account</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices in aliquam mi odio.</p>
+								</div>
+							</div>
+						</div>
+						<div class="acount-btn wow fadeInDown" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+							<a href="/">Open Account</a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="pone-image wow fadeInRight" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+							<img src="/static/assets/landing/images/phone.png" alt="image" />
+						</div>
+					</div>
+				</div>
+			</div>	
+		</section>
+		<!-- acount-end -->
+		<!-- market-area -->
+		<section class="market-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-text maine-market">
+							<h4>Opportunities to Traders</h4>
+							<h2>Multi Market Trading Experience</h2>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Forex</a>
+						  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Metals</a>
+						  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Index CFDs</a>
+						  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Cryptocurrencies</a>
+						   <a class="nav-link" id="v-pills-trading-tab" data-toggle="pill" href="#v-pills-trading" role="tab" aria-controls="v-pills-trading" aria-selected="false">Trading</a>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="tab-content" id="v-pills-tabContent">
+						  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+						  	<div class="row">
+						  		<div class="col-lg-12">
+							  		<div class="tab-image">
+							  			<img src="/static/assets/landing/images/Group90.png" alt="image" />
+							  		</div>
+							  	</div>
+						  	</div>
+						  </div>
+						  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+						  	<div class="row">
+						  		<div class="col-lg-12">
+							  		<div class="tab-image">
+							  			<img src="/static/assets/landing/images/Group90.png" alt="image" />
+							  		</div>
+							  	</div>
+						  	</div>
+						  </div>
+						  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+						  	<div class="row">
+						  		<div class="col-lg-12">
+							  		<div class="tab-image">
+							  			<img src="/static/assets/landing/images/Group90.png" alt="image" />
+							  		</div>
+							  	</div>
+						  	</div>
+						  </div>
+						  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+						  	<div class="row">
+						  		<div class="col-lg-12">
+							  		<div class="tab-image">
+							  			<img src="/static/assets/landing/images/Group90.png" alt="image" />
+							  		</div>
+							  	</div>
+						  	</div>
+						  </div>
+						  <div class="tab-pane fade" id="v-pills-trading" role="tabpanel" aria-labelledby="v-pills-trading-tab">
+						  	<div class="row">
+						  		<div class="col-lg-12">
+							  		<div class="tab-image">
+							  			<img src="/static/assets/landing/images/Group90.png" alt="image" />
+							  		</div>
+							  	</div>
+						  	</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer-area">
+			<div class="container">
+				<div class="footer-top-area">
+					<div class="brand-slider owl-carousel">
+						<div class="siled-image">
+							<img src="/static/assets/landing/images/s1.png" alt="images" />
+						</div>
+						<div class="siled-image">
+							<img src="/static/assets/landing/images/s2.png" alt="images" />
+						</div>
+						<div class="siled-image">
+							<img src="/static/assets/landing/images/s3.png" alt="images" />
+						</div>
+						<div class="siled-image">
+							<img src="/static/assets/landing/images/s4.png" alt="images" />
+						</div>
+						<div class="siled-image">
+							<img src="/static/assets/landing/images/s5.png" alt="images" />
+						</div>
+						<div class="siled-image">
+							<img src="/static/assets/landing/images/s6.png" alt="images" />
+						</div>
+					</div>
+				</div>
+				<div class="widget-area">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-widget">
+								<div class="zairex-box">
+									<div class="zairex-logo">
+										<!-- <img src="/static/assets/landing/images/logo.png" alt="image" /> -->
+									</div>
+									<div class="zairex-text">
+										<p>Odio tincidunt sit aliquam sed nec. Enim etiam fringilla egestas porta dictumst mattis. Diam, velit, bibendum donec convallis mauris nulla neque sed. Est.</p>
+									</div>
+									<div class="subscribe-area">
+										<input class="input-btn" type="text" placeholder="subscribe newsletter" />
+										<button type="submit">
+											<i class="fas fa-long-arrow-alt-right"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-widget">
+								<div class="menu-text">
+									<h4>Quick Links</h4>
+								</div>
+								<div class="footer-menu">
+									<ul>
+										<li><a href="#">Home</a></li>
+										<li><a href="#">About</a></li>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">Acount</a></li>
+										<li><a href="#">Contact</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-widget">
+								<div class="menu-text">
+									<h4>Company</h4>
+								</div>
+								<div class="footer-menu">
+									<ul>
+										<li><a href="#">About Us</a></li>
+										<li><a href="#">Career</a></li>
+										<li><a href="#">Support</a></li>
+										<li><a href="#">Affiliate Prograam</a></li>
+										<li><a href="#">Security</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-widget">
+								<div class="menu-text">
+									<h4>Contacts</h4>
+								</div>
+								<div class="menu-icon ">
+									<i class="fas fa-phone-alt"></i>
+									<p>+625 8569 652  </p>
+									<p>(321) 5286 362</p>
+								</div>
+								<div class="menu-icon">
+									<i class="far fa-envelope"></i>
+									<p>yourcompanyname@domain.</p>
+									<p>comcompanysupport@email.com</p>
+								</div>
+								<div class="menu-icon">
+									<i class="fas fa-map-marker-alt"></i>
+									<p>123 Street fort view avenue #1403
+									Las Vegas, Nevada 25635-4000 </p>
+								</div>
+								<div class="footer-icon">
+									<a href="#">
+										<i class="fab fa-facebook-f"></i>
+									</a>
+									<a href="#">
+										<i class="fab fa-twitter"></i>
+									</a>
+									<a href="#" class="instagram-icon">
+										<i class="fab fa-instagram"></i>
+									</a>
+									<a href="#">
+										<i class="fab fa-linkedin"></i>
+									</a>
+								</div>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="copy-right">
+							<p>&copy; 2024 Copyright  | All Right Reserved </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- footer-area -->
+
+		<script src="/static/assets/landing/js/jquery.min.js"></script>
+		<script src="/static/assets/landing/js/bootstrap.bundle.js"></script>
+		<script src="/static/assets/landing/js/bootstrap.js"></script>
+		<script src="/static/assets/landing/js/jquery.counterup.min.js"></script>
+		<script src="/static/assets/landing/js/wow.min.js"></script>	
+		<script src="/static/assets/landing/js/waypoints.js"></script>
+		<script src="/static/assets/landing/js/owl.carousel.min.js"></script>
+		<script src="/static/assets/landing/js/jquery.magnific-popup.min.js"></script>
+		<script src="/static/assets/landing/js/jquery.scrollUp.min.js"></script>
+		<script src="/static/assets/landing/js/main.js"></script>
+		<script>
+			$(window).scroll(function() {
+				if($(window).scrollTop() > 80) {
+					$("#sticky").addClass("sticky");
+				}else {
+					$("#sticky").removeClass("sticky");
+				}
+			});
+			/*---------------------------------
+		    smoot scroll nav sctive Popup active
+		    -----------------------------------*/
+		    $(document).on('click','nav ul li a', function (e) {
+		      var anchor = $(this).attr('href');
+		      var link = anchor.slice(0,1);
+		      if ('#' == link) {
+		          e.preventDefault();
+		          var top = $(anchor).offset().top;
+		          $('html, body').animate({
+		              scrollTop: $(anchor).offset().top
+		          }, 1000);
+		          $(this).parent().addClass('active').siblings().removeClass('active');
+		      }
+		    });
+
+		    $(function(){
+			  $.scrollUp({
+			  	 scrollText: '<i class="fas fa-angle-up"></i>', 
+			  });
+			})
+			</script>
+
+	</body>
+</html>

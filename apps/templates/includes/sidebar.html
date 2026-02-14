@@ -1,0 +1,57 @@
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a target="_blank" rel="noopener noreferrer" 
+           href="http://127.0.0.1:8000" class="simple-text logo-normal">
+          Bussiness Nexus
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+        {% if request.user.is_authenticated %}
+
+          <li class="nav-item {% if 'index' in segment %} active {% endif %}">
+            <a class="nav-link" href="/index">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'bids' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'all_bids' %}">
+              <i class="material-icons">payment</i>
+              <p>Payment Status</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'users' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'users' %}">
+              <i class="material-icons">person</i>
+              <p>Users</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'verfications' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'verfications' %}">
+              <i class="material-icons">library_books</i>
+              <p>Verfications</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'logout' %}" >
+              <i class="material-icons">directions_run</i>
+              <p>Logout</p>
+            </a>
+          </li>
+        {% else %}
+
+          <li class="nav-item active">
+            <a class="nav-link" 
+               target="_blank" rel="noopener noreferrer"  
+               href="http://127.0.0.1:8000/login">
+              <i class="material-icons">unarchive</i>
+              <p>Login</p>
+            </a>
+          </li>          
+
+        {% endif %}
+        </ul>
+      </div>
+
+    </div>

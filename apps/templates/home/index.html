@@ -1,0 +1,277 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div>
+            <p class="card-category">Verfied Users</p>
+            <h3 class="card-title">1
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger"></i>
+              <i class="material-icons">update</i>Updated Just Now
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">store</i>
+            </div>
+            <p class="card-category">Total Stocks</p>
+            <h3 class="card-title">1M+</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i> Last 24 Hours
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <p class="card-category">Total Bussiness</p>
+            <h3 class="card-title">800+</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">local_offer</i> Tracked from Database
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-twitter"></i>
+            </div>
+            <p class="card-category">Bids Applied</p>
+            <h3 class="card-title">+{{bids}}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div class="ct-chart" id="dailySalesChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Users</h4>
+            <p class="card-category">
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-warning">
+            <div class="ct-chart" id="websiteViewsChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Bid Applied Subscriptions</h4>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div class="ct-chart" id="completedTasksChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Bids Rejected</h4>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chartist/dist/chartist.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      var symbol = window.location.pathname.split('stock_detail/').pop();
+      console.log(symbol);
+      $.ajax({
+        url: "api/admin/users",
+        type: 'GET',
+        success: function(response) {
+            if (response.error) {
+                console.error(response.error);
+                return;
+            }
+            
+            var labels = response.map(function(entry) {
+                return entry.date;
+            });
+            var series = response.map(function(entry) {
+                return entry.num_users;
+            });
+
+            var dataDailySalesChart = {
+                labels: labels,
+                series: [series]
+            };
+
+            var optionsDailySalesChart = {
+                lineSmooth: Chartist.Interpolation.cardinal({
+                    tension: 0
+                }),
+                low: 0,
+                high: Math.max(...series) + 10,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                }
+            };
+
+            var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+            md.startAnimationForLineChart(dailySalesChart);
+        }
+    });
+  });
+  $(document).ready(function() {
+      var symbol = window.location.pathname.split('stock_detail/').pop();
+      console.log(symbol);
+      $.ajax({
+          url: "api/admin/bids" ,
+          type: 'GET',
+          success: function(response) {
+            if (response.error) {
+                console.error(response.error);
+                return;
+            }
+            
+            var labels = response.map(function(entry) {
+                return entry.date;
+            });
+            var series = response.map(function(entry) {
+                return entry.num_bids;
+            });
+
+            var dataWebsiteViewsChart = {
+                labels: labels,
+                series: [series]
+            };
+
+            var optionsWebsiteViewsChart = {
+                axisX: {
+                    showGrid: false
+                },
+                low: 0,
+                high: 1000,
+                chartPadding: {
+                    top: 0,
+                    right: 5,
+                    bottom: 0,
+                    left: 0
+                }
+            };
+            var responsiveOptions = [
+                ['screen and (max-width: 640px)', {
+                    seriesBarDistance: 5,
+                    axisX: {
+                        labelInterpolationFnc: function(value) {
+                            return value[0];
+                        }
+                    }
+                }]
+            ];
+            var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+            md.startAnimationForLineChart(websiteViewsChart);
+          }
+      });
+  });
+  $(document).ready(function() {
+      var symbol = window.location.pathname.split('stock_detail/').pop();
+      console.log(symbol);
+      $.ajax({
+        url: "api/investor/rejbids",
+        type: 'GET',
+        success: function(response) {
+            if (response.error) {
+                console.error(response.error);
+                return;
+            }
+            
+            var labels = response.map(function(entry) {
+                return entry.date;
+            });
+            var series = response.map(function(entry) {
+                return entry.num_bids;
+            });
+
+            var dataCompletedTasksChart = {
+                labels: labels,
+                series: [series]
+            };
+
+            var optionsCompletedTasksChart = {
+                lineSmooth: Chartist.Interpolation.cardinal({
+                    tension: 0
+                }),
+                low: 0,
+                high: 1000,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                }
+            };
+
+            var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+            md.startAnimationForLineChart(completedTasksChart);
+          }
+      });
+  });
+  </script>
+
+  
+  
+
+
+{% endblock javascripts %}

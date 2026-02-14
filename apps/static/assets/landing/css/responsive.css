@@ -1,0 +1,268 @@
+@media (max-width: 1199px) {
+	.hader-menu ul li {
+		padding: 0 10px;
+	}
+	.benifits-box {
+		padding: 30px 15px;
+	}
+	.benifits-tetx p {
+		font-size: 12px;
+		line-height: 22px;
+	}
+	.about-text h2 {
+		font-size: 32px;
+	}
+	.baner-text p {
+		width: 60%;
+	}
+	.baner-text h2 {
+		width: 80%;
+	}
+}
+
+@media (max-width: 991px){
+	.flex-column a {
+		padding: 10px 15px;
+		font-size: 12px;
+		margin-bottom: 15px;
+	}
+	.baner-text h2 {
+	    font-size: 36px;
+	    margin-top: 140px;
+	}
+	.baner-btn {
+    	margin-bottom: 80px;
+	}
+	.services-text p {
+	    font-size: 14px;
+	}
+	.acount-text h2 {
+	    font-size: 20px;
+	    margin-bottom: 40px;
+	}
+	.acount-image h4 {
+	    font-size: 18px;
+	}
+	.acount-image {
+		padding-left: 65px;
+	}
+	.acount-btn a {
+	    padding: 12px 15px;
+	}
+	.acount-box {
+    	margin-bottom: 35px;
+	}
+	.maine-acount {
+	    border-left: 2px solid #D3E2FF;
+	}
+	.menu-text h4 {
+	    font-size: 15px;
+	    font-weight: 700;
+	    font-family: 'Manrope', sans-serif;
+	    color: #3D3939;
+	    line-height: auto;
+	    margin-bottom: 30px;
+	}
+	.zairex-text p {
+	    font-size: 13px;
+	    line-height: 22px;
+	}.about-text p
+	.footer-menu ul li a {
+	    font-size: 14px;
+	    line-height: 35px;
+	}
+	.zairex-btn input {
+	    width: 100%;
+	}
+	.zairex-btn button {
+    	bottom: 63px;
+    	right:7%;
+	}
+	.our-about {
+		background: #fafafa;
+		padding: 60px 0;
+	}
+	.about-us {
+	    padding: 0;
+	    background: transparent;
+	}
+	.section-text h4:after {
+	    left: 47%;
+	}
+	.benifits-tetx h4 {
+		font-size: 22px;
+	}
+	.benifits-tetx p {
+		font-size: 14px;
+		line-height: 24px;
+	}
+	.tab-image {
+		padding: 0;
+	}
+	.acount-image img {
+		padding: 5px;
+	}
+	.colla-box {
+		background: #FF5500;
+		text-align: center;
+		border-radius: 50px;
+	}
+	.baner-text p {
+		width: 80%;
+	} 
+	.our-benifits .padding-top {
+		margin-top: 0;
+	}
+	.section-text h2 {
+	    margin-bottom: 50px;
+	} 
+}
+@media (max-width: 767px){
+	.baner-text h2 {
+	    font-size: 28px;
+	    margin-top: 125px;
+	    line-height: 40px;
+	}
+	.benifits-tetx p {
+	    font-size: 16px;
+	    line-height: 30px;
+	}
+	.pone-image img {
+	    height: auto;
+	    width: 100%;
+	    margin-top: 60px;
+	}
+	.about-us {
+	    padding: 70px 15px;
+	}
+	.colla-image {
+    	background: #FF5500;
+	}
+	.zairex-btn input {
+    	width: 50%;
+	}
+	.zairex-btn button {
+	    bottom: 0px;
+	    right: 50%;
+	}
+	.section-text h4:after {
+    	left: 44%;
+	}
+	.colla-box {
+		text-align: center;
+	}
+	.market-area .nav {
+		margin-bottom: 20px;
+	}
+	.baner-text p {
+		width: 100%;
+	}
+	.our-benifits {
+	    padding: 50px 0px;
+	}
+	.our-about {
+	    padding: 0px 0;
+	}
+	.acount-area {
+    	margin-bottom: 100px;
+	}
+	.market-area {
+    	margin-bottom: 100px;
+	}
+	.our-services {
+    	margin-bottom: 100px;
+	}
+}
+@media (max-width: 480px){
+	.baner-text h2 {
+	    font-size: 32px;
+	    margin-top: 101px;
+	    line-height: 34px;
+	    width: 100%;
+	}
+	.section-text h2 {
+	    font-size: 32px;
+	}
+	.benifits-tetx p {
+	    font-size: 14px;
+	    line-height: 30px;
+	}
+}
+@media (max-width: 414px){
+	.baner-text h2 {
+	    font-size: 26px;
+	    margin-top: 95px;
+	    line-height: 30px;
+	}
+	.benifits-tetx p {
+	    font-size: 14px;
+	    line-height: 25px;
+	}
+	
+	.menu-icon p {
+    	font-size: 14px;
+	}
+	.footer-menu ul li a {
+	    font-size: 16px;
+	    line-height: 35px;
+	}
+	.zairex-btn input {
+    	width: 62%;
+	}
+	.zairex-btn button {
+    	right: 39%;
+	}
+}
+@media (max-width: 412px) {
+	.colla-btn a {
+		margin: 10px 0;
+	}
+}
+@media (max-width: 375px){
+	.section-text h2 {
+    	font-size: 20px;
+	}
+	.copy-right p {
+	    font-size: 13px;
+	}
+	.colla-text h3 {
+    	font-size: 18px;
+	}
+	.zairex-btn input {
+    	width: 70%;
+	}
+	.zairex-btn button {
+    	right: 32%;
+	}
+}
+@media (max-width: 320px){
+	.baner-text h2 {
+	    font-size: 22px;
+	    margin-top: 80px;
+	    line-height: 32px;
+	}
+	.benifits-small i {
+	    bottom: 32%;
+	}
+	.section-text h2 {
+    	font-size: 28px;
+	}
+	.colla-text h3 {
+    	font-size: 14px;
+	}
+	.colla-btn a {
+	    margin-right: 8px;
+	}
+	.copy-right p {
+    	font-size: 11px;
+	}
+	.menu-icon p {
+    	font-size: 13px;
+	}
+	.zairex-btn input {
+    	width: 80%;
+	}
+	.zairex-btn button {
+    	right: 23%;
+	}
+}

@@ -1,0 +1,295 @@
+{% extends "invnSide/layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">content_copy</i>
+            </div>
+            <p class="card-category">Open</p>
+            <h3 class="card-title">{{ open }}
+              <small></small>
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger"></i>
+              <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">store</i>
+            </div>
+            <p class="card-category">High</p>
+            <h3 class="card-title">{{ high }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+                <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <p class="card-category">Low</p>
+            <h3 class="card-title">{{ low }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+                <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-close"></i>
+            </div>
+            <p class="card-category">Close</p>
+            <h3 class="card-title">{{ close }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> Just Updated
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div class="ct-chart" id="dailySalesChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Daily High</h4>
+            <p class="card-category">
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> updated 4 minutes ago
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-warning">
+            <div class="ct-chart" id="websiteViewsChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Volume</h4>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> 4 minutes ago
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div class="ct-chart" id="completedTasksChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Daily Close</h4>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i>4 minutes ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Place Bid</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bidding Offer</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'place_bids' %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" value="{{ symbol }}" name="symbol" readonly >
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Proposed Price/Stock:</label>
+                <input type="number" class="form-control" name="price" id="recipient-name" required>
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Volume:</label>
+                <input type="number" class="form-control" name="vol" id="recipient-name" required>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chartist/dist/chartist.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) 
+      var recipient = button.data('whatever')
+      var modal = $(this)
+      modal.find('.modal-title').text('New message to ' + recipient)
+      modal.find('.modal-body input').val(recipient)
+    })
+  </script>
+  <script>
+    $(document).ready(function() {
+      var symbol = window.location.pathname.split('stock_detail/').pop();
+      console.log(symbol);
+      $.ajax({
+          url: "/api/stock-data/" + symbol ,
+          type: 'GET',
+          success: function(response) {
+              if (response.error) {
+                  console.error(response.error);
+                  return;
+              }
+              var dataDailySalesChart = {
+                  labels: response.labels,
+                  series: response.series
+              };
+  
+              var optionsDailySalesChart = {
+                  lineSmooth: Chartist.Interpolation.cardinal({
+                      tension: 0
+                  }),
+                  low: 0,
+                  high: Math.max(...response.series[0]) + 10, // Adjust high value dynamically
+                  chartPadding: {
+                      top: 0,
+                      right: 0,
+                      bottom: 0,
+                      left: 0
+                  },
+              };
+  
+              var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+              md.startAnimationForLineChart(dailySalesChart);
+          }
+      });
+  });
+  $(document).ready(function() {
+      var symbol = window.location.pathname.split('stock_detail/').pop();
+      console.log(symbol);
+      $.ajax({
+          url: "/api/vol-data/" + symbol ,
+          type: 'GET',
+          success: function(response) {
+              if (response.error) {
+                  console.error(response.error);
+                  return;
+              }
+              var dataWebsiteViewsChart = {
+                  labels: response.labels,
+                  series: response.series
+              };
+  
+              var optionsWebsiteViewsChart = {
+                axisX: {
+                  showGrid: false
+                },
+                low: 0,
+                high: 1000,
+                chartPadding: {
+                  top: 0,
+                  right: 5,
+                  bottom: 0,
+                  left: 0
+                }
+              };
+              var responsiveOptions = [
+                ['screen and (max-width: 640px)', {
+                  seriesBarDistance: 5,
+                  axisX: {
+                    labelInterpolationFnc: function(value) {
+                      return value[0];
+                    }
+                  }
+                }]
+              ];
+              var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+              md.startAnimationForLineChart(websiteViewsChart);
+          }
+      });
+  });
+  $(document).ready(function() {
+      var symbol = window.location.pathname.split('stock_detail/').pop();
+      console.log(symbol);
+      $.ajax({
+          url: "/api/close-data/" + symbol ,
+          type: 'GET',
+          success: function(response) {
+              if (response.error) {
+                  console.error(response.error);
+                  return;
+              }
+              var dataCompletedTasksChart = {
+                  labels: response.labels,
+                  series: response.series
+              };
+  
+              optionsCompletedTasksChart = {
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 0
+        }),
+        low: 0,
+        high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        chartPadding: {
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0
+        }
+      }
+
+          var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+              md.startAnimationForLineChart(completedTasksChart);
+          }
+      });
+  });
+  </script>
+
+  
+  
+
+
+{% endblock javascripts %}

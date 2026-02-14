@@ -1,0 +1,66 @@
+{% extends "entSide/layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary d-flex justify-content-between align-items-center">
+                    <h4 class="card-title">Your Bussiness</h4>
+                    <div>
+                        <a href="{% url 'add_bussiness' %}"><button class="btn btn-primary">Add Business</button></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Ticker
+                        </th>
+                        <th>
+                          Stocks
+                        </th>
+                        <th>
+                          High
+                        </th>
+                        <th>
+                          Close
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        {% for stock_item in stock_data %}
+                            <tr>
+                                <td>{{ stock_item.bussiness_id }}</td>
+                                <td>{{ stock_item.ticker }}</td>
+                                <td>{{ stock_item.data.Volume.values.0 }}</td>
+                                <td>{{ stock_item.data.High.values.0 }}</td>    
+                                <td>{{ stock_item.data.Low.values.0 }}</td>  
+                                <td class="text-primary">
+                                    <a href="{% url 'delete_bussiness' stock_item.bussiness_id %}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

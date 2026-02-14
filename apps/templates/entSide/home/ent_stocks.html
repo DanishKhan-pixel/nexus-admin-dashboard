@@ -1,0 +1,80 @@
+{% extends "entSide/layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary d-flex justify-content-between align-items-center">
+                    <h4 class="card-title">Your Bussiness</h4>
+                    <div>
+                        <a href="{% url 'add_bussiness' %}"><button class="btn btn-primary">Add Business</button></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Ticker
+                        </th>
+                        <th>
+                          Stocks
+                        </th>
+                        <th>
+                          Price/Stock
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                        <th>
+                          Meeting Link
+                      </th>
+                      </thead>
+                      <tbody>
+                        {% for stock in stocks %}
+                        <tr>
+                            <td>{{ stock.symbol.id }}</td>
+                            <td>{{ stock.symbol.ticker }}</td>
+                            <td>{{ stock.quantity }}</td>
+                            <td>{{ stock.price }}</td>
+                            <td>
+                                {% if stock.status == '0' %}
+                                    <span class="badge badge-danger">Rejected</span>
+                                {% elif stock.status == '1' %}
+                                    <span class="badge badge-success">Accepted</span>
+                                {% else %}
+                                    <span class="badge badge-warning">Pending</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-primary">
+                                <a href="{% url 'ent_stocks_meeting_acc' stock.symbol.id %}" class="btn btn-success">Accept</a>
+                                <a href="{% url 'ent_stocks_meeting' stock.symbol.id %}" class="btn btn-primary">View</a>
+                                <a href="{% url 'ent_stocks_meeting_rej' stock.symbol.id %}" class="btn btn-danger">Reject</a>
+                            </td>
+                            <td>{{ stock.link }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,63 @@
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a target="_blank" rel="noopener noreferrer" 
+           href="http://127.0.0.1:8000" class="simple-text logo-normal">
+          Bussiness Nexus
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+        {% if request.user.is_authenticated %}
+
+          <li class="nav-item {% if 'index' in segment %} active {% endif %}">
+            <a class="nav-link" href="/investor">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'in_profile' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'in_profile' %}">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'investments' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'investments' %}">
+              <i class="material-icons">library_books</i>
+              <p>Your Bussinesses</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'bids' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'bids' %}">
+              <i class="material-icons">library_books</i>
+              <p>Bids</p>
+            </a>
+          </li>
+          <li class="nav-item {% if 'listings' in segment %} active {% endif %}">
+            <a class="nav-link" href="{% url 'listings' %}">
+              <i class="material-icons">library_books</i>
+              <p>All Listings</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'logout' %}" >
+              <i class="material-icons">directions_run</i>
+              <p>Logout</p>
+            </a>
+          </li>
+        {% else %}
+
+          <li class="nav-item active">
+            <a class="nav-link" 
+               target="_blank" rel="noopener noreferrer"  
+               href="http://127.0.0.1:8000-pro">
+              <i class="material-icons">unarchive</i>
+              <p>PRO Version</p>
+            </a>
+          </li>          
+
+        {% endif %}
+        </ul>
+      </div>
+
+    </div>

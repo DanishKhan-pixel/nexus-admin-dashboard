@@ -1,0 +1,158 @@
+{% extends "entSide/layouts/base.html" %}
+
+{% block title %} Bussiness {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+          <!-- <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Add Bussiness</h4>
+                </div>
+                <div class="card-body">
+                  <form action="{% url 'add_bussiness' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Add Bussiness Ticker</label>
+                          <input type="text" class="form-control" name="ticker" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Select Bussiness Sector</label>
+                          <select name="sector" class="form-control" required>
+                            <option value="VANASPATI & ALLIED INDUSTRIES">VANASPATI & ALLIED INDUSTRIES</option>
+                            <option value="LEASING COMPANIES">LEASING COMPANIES</option>
+                            <option value="OIL & GAS EXPLORATION COMPANIES">OIL & GAS EXPLORATION COMPANIES</option>
+                            <option value="INSURANCE">INSURANCE</option>
+                            <option value="MODARABAS">MODARABAS</option>
+                            <option value="TECHNOLOGY & COMMUNICATION">TECHNOLOGY & COMMUNICATION</option>
+                            <option value="TEXTILE SPINNING"></option>
+                            <option value="CHEMICAL">CHEMICAL</option>
+                            <option value="MISCELLANEOUS">MISCELLANEOUS</option>
+                            <option value="OIL & GAS MARKETING COMPANIES">OIL & GAS MARKETING COMPANIES</option>
+                            <option value="TEXTILE WEAVING', 'TRANSPORT">TEXTILE WEAVING', 'TRANSPORT</option>
+                            <option value="COMMERCIAL BANKS">COMMERCIAL BANKS</option>
+                            <option value="GLASS & CERAMICS">GLASS & CERAMICS</option>
+                            <option value="PROPERTY">PROPERTY</option>
+                            <option value="LEATHER & TANNERIES">LEATHER & TANNERIES</option>
+                            <option value="INV. BANKS / INV. COS. / SECURITIES COS.">INV. BANKS / INV. COS. / SECURITIES COS.</option>
+                            <option value="CLOSE - END MUTUAL FUND">CLOSE - END MUTUAL FUND</option>
+                            <option value="CEMENT">CEMENT</option>
+                            <option value="EXCHANGE TRADED FUNDS">EXCHANGE TRADED FUNDS</option>
+                            <option value="SYNTHETIC & RAYON">SYNTHETIC & RAYON</option>
+                            <option value="JUTE">JUTE</option>
+                            <option value="TEXTILE COMPOSITE">TEXTILE COMPOSITE</option>
+                            <option value="FERTILIZER">FERTILIZER</option>
+                            <option value="WOOLLEN">WOOLLEN</option>
+                            <option value="REAL ESTATE INVESTMENT TRUST">REAL ESTATE INVESTMENT TRUST</option>
+                            <option value="POWER GENERATION & DISTRIBUTION">POWER GENERATION & DISTRIBUTION</option>
+                            <option value="CABLE & ELECTRICAL GOODS">CABLE & ELECTRICAL GOODS</option>
+                            <option value="REFINERY">REFINERY</option>
+                            <option value="AUTOMOBILE PARTS & ACCESSORIES">AUTOMOBILE PARTS & ACCESSORIES</option>
+                            <option value="FOOD & PERSONAL CARE PRODUCTS">FOOD & PERSONAL CARE PRODUCTS</option>
+                            <option value="SUGAR & ALLIED INDUSTRIES">SUGAR & ALLIED INDUSTRIES</option>
+                            <option value="BILLS AND BONDS">BILLS AND BONDS</option>
+                            <option value="ENGINEERING">ENGINEERING</option>
+                            <option value="PAPER & BOARD">PAPER & BOARD</option>
+                            <option value="AUTOMOBILE ASSEMBLER">AUTOMOBILE ASSEMBLER</option>
+                            <option value="PHARMACEUTICALS">PHARMACEUTICALS</option>
+                        </div>
+                      </div> 
+                    </div>     
+                    <div class="col-md-5" >
+                      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                    </div>              
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Add Business</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'add_bussiness' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Add Business Ticker</label>
+                                        <input type="text" class="form-control" name="ticker" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Select Business Sector</label>
+                                        <select name="sector" class="form-control" required>
+                                          <option value="VANASPATI & ALLIED INDUSTRIES">VANASPATI & ALLIED INDUSTRIES</option>
+                                          <option value="LEASING COMPANIES">LEASING COMPANIES</option>
+                                          <option value="OIL & GAS EXPLORATION COMPANIES">OIL & GAS EXPLORATION COMPANIES</option>
+                                          <option value="INSURANCE">INSURANCE</option>
+                                          <option value="MODARABAS">MODARABAS</option>
+                                          <option value="TECHNOLOGY & COMMUNICATION">TECHNOLOGY & COMMUNICATION</option>
+                                          <option value="TEXTILE SPINNING"></option>
+                                          <option value="CHEMICAL">CHEMICAL</option>
+                                          <option value="MISCELLANEOUS">MISCELLANEOUS</option>
+                                          <option value="OIL & GAS MARKETING COMPANIES">OIL & GAS MARKETING COMPANIES</option>
+                                          <option value="TEXTILE WEAVING', 'TRANSPORT">TEXTILE WEAVING', 'TRANSPORT</option>
+                                          <option value="COMMERCIAL BANKS">COMMERCIAL BANKS</option>
+                                          <option value="GLASS & CERAMICS">GLASS & CERAMICS</option>
+                                          <option value="PROPERTY">PROPERTY</option>
+                                          <option value="LEATHER & TANNERIES">LEATHER & TANNERIES</option>
+                                          <option value="INV. BANKS / INV. COS. / SECURITIES COS.">INV. BANKS / INV. COS. / SECURITIES COS.</option>
+                                          <option value="CLOSE - END MUTUAL FUND">CLOSE - END MUTUAL FUND</option>
+                                          <option value="CEMENT">CEMENT</option>
+                                          <option value="EXCHANGE TRADED FUNDS">EXCHANGE TRADED FUNDS</option>
+                                          <option value="SYNTHETIC & RAYON">SYNTHETIC & RAYON</option>
+                                          <option value="JUTE">JUTE</option>
+                                          <option value="TEXTILE COMPOSITE">TEXTILE COMPOSITE</option>
+                                          <option value="FERTILIZER">FERTILIZER</option>
+                                          <option value="WOOLLEN">WOOLLEN</option>
+                                          <option value="REAL ESTATE INVESTMENT TRUST">REAL ESTATE INVESTMENT TRUST</option>
+                                          <option value="POWER GENERATION & DISTRIBUTION">POWER GENERATION & DISTRIBUTION</option>
+                                          <option value="CABLE & ELECTRICAL GOODS">CABLE & ELECTRICAL GOODS</option>
+                                          <option value="REFINERY">REFINERY</option>
+                                          <option value="AUTOMOBILE PARTS & ACCESSORIES">AUTOMOBILE PARTS & ACCESSORIES</option>
+                                          <option value="FOOD & PERSONAL CARE PRODUCTS">FOOD & PERSONAL CARE PRODUCTS</option>
+                                          <option value="SUGAR & ALLIED INDUSTRIES">SUGAR & ALLIED INDUSTRIES</option>
+                                          <option value="BILLS AND BONDS">BILLS AND BONDS</option>
+                                          <option value="ENGINEERING">ENGINEERING</option>
+                                          <option value="PAPER & BOARD">PAPER & BOARD</option>
+                                          <option value="AUTOMOBILE ASSEMBLER">AUTOMOBILE ASSEMBLER</option>
+                                          <option value="PHARMACEUTICALS">PHARMACEUTICALS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
