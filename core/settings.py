@@ -71,18 +71,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': 'db.sqlite3',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nexus',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '4306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(CORE_DIR, 'db.sqlite3'),
     }
+    # MySQL configuration (commented out - uncomment if you want to use MySQL)
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'nexus',
+    #     'USER': 'root',
+    #     'PASSWORD': '',
+    #     'HOST': 'localhost',
+    #     'PORT': '4306',
+    # }
 }
 
 # Password validation
